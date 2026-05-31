@@ -49,8 +49,8 @@ export default function Thesis() {
             <p className="r">AgentAuth is not asking Exa to become an identity company. The model is SSL, not a platform. A certificate authority verifies identity but is never in the data path. Let&rsquo;s Encrypt issues certificates but does not proxy your traffic. DNS resolves names but does not route your packets. Exa as the discovery and trust layer follows the same architecture: verify at the edges, stay out of the transaction. The agent web gets a foundation. Exa gets the distribution point for every agent interaction on the open internet.</p>
             <p className="r">
               The library is open source. &rarr;{' '}
-              <a href="https://github.com/[username]/agentauth" target="_blank" rel="noreferrer" className="gh-inline">
-                github.com/[username]/agentauth
+              <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer" className="gh-inline">
+                github.com/raghuvanshidevyansh-creator/AgentAuthExa
               </a>
             </p>
           </div>
@@ -132,8 +132,8 @@ export default function Thesis() {
           </a>
           <p className="gh-row r">
             Open source &rarr;{' '}
-            <a href="https://github.com/[username]/agentauth" target="_blank" rel="noreferrer" className="gh-inline">
-              github.com/[username]/agentauth
+            <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer" className="gh-inline">
+              github.com/raghuvanshidevyansh-creator/AgentAuthExa
             </a>
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function Thesis() {
           <div className="f-links">
             <Link href="/">Home</Link>
             <Link href="/demo">Demo</Link>
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer">GitHub</a>
           </div>
           <p className="f-attr">BUILT AT DUKE &middot; OPEN SOURCE &middot; 2026</p>
         </div>

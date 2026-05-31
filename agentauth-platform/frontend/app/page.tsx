@@ -167,8 +167,8 @@ export default function Landing() {
         <div className="w">
           <p className="f-pip">pip install agentauth</p>
           <div className="f-links">
-            <a href="https://github.com/[username]/agentauth" target="_blank" rel="noreferrer">
-              github.com/[username]/agentauth
+            <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer">
+              github.com/raghuvanshidevyansh-creator/AgentAuthExa
             </a>
             <Link href="/thesis">Read the thesis</Link>
           </div>
