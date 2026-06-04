@@ -2,12 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import type { CSSProperties } from 'react'
+import { AGNOSTIC_CONFIG as config } from '@/config/company'
 
 export const metadata: Metadata = {
   title: 'AgentAuth — The Thesis',
 }
 
 const pageStyle = { '--mw': '760px' } as CSSProperties
+
+const [closingBefore, closingAfter] = config.closingThesis.split(config.closingThesisHighlight)
 
 export default function Thesis() {
   return (
@@ -16,7 +19,7 @@ export default function Thesis() {
       <section className="thesis-open">
         <div className="w">
           <ScrollReveal>
-            <p>The agent web has retrieval and it has communication protocols. It does not yet have a discovery and identity layer. Agents cannot autonomously find other agents by capability at runtime, and they cannot verify each other&rsquo;s authorization to commit. These are not two problems. Discovery without identity is an open marketplace of unverified actors. Identity without discovery is a credential system with no network to secure. The primitive is the composition. Exa is the natural locus to ship it because Exa already has the retrieval infrastructure, the distribution to every developer building agents, and the credibility to operate as a trust authority. This is not scope expansion. Every search platform that won did so by expanding the object class it indexed. Google: pages, then places, then products, then videos. Same primitive, new schemas. Agents are web data with executable interfaces. Indexing them is the same retrieval primitive applied to a new object class. Schema changes. Infrastructure does not. This is how search platforms compound. Not how they pivot.</p>
+            <p>The agent web has retrieval and it has communication protocols. It does not yet have a discovery and identity layer. Agents cannot autonomously find other agents by capability at runtime, and they cannot verify each other&rsquo;s authorization to commit. These are not two problems. Discovery without identity is an open marketplace of unverified actors. Identity without discovery is a credential system with no network to secure. The primitive is the composition. {config.openingInsert} This is not scope expansion. Every search platform that won did so by expanding the object class it indexed. Google: pages, then places, then products, then videos. Same primitive, new schemas. Agents are web data with executable interfaces. Indexing them is the same retrieval primitive applied to a new object class. Schema changes. Infrastructure does not. This is how search platforms compound. Not how they pivot.</p>
           </ScrollReveal>
         </div>
       </section>
@@ -27,7 +30,7 @@ export default function Thesis() {
           <div className="lbl r">THE GAP</div>
           <h2 className="sec-heading r">The infrastructure is landing without a foundation.</h2>
           <div className="essay-body">
-            <p className="r">The last 14 months produced more agent infrastructure than the previous five years combined. Stripe MPP made agent payments real. Google A2A standardized agent communication with 50+ partners. MCP connected agents to tools at scale. Exa raised $250M to organize the web&rsquo;s data for agents. The rails exist. The money is moving. The foundation is not there.</p>
+            <p className="r">The last 14 months produced more agent infrastructure than the previous five years combined. Stripe MPP made agent payments real. Google A2A standardized agent communication with 50+ partners. MCP connected agents to tools at scale. {config.gapInsert ? <>{config.gapInsert} </> : null}The rails exist. The money is moving. The foundation is not there.</p>
             <p className="r">Every agent interaction today was set up before it happened. A developer read a manifest, chose a counterpart, and hardcoded the connection. The agent did not decide. The agent did not discover. The agent did not verify. Autonomous is the wrong word for any of this. What exists today is automation with a human in the decision loop, dressed up as autonomy.</p>
             <p className="r">The discovery side of this is being attempted as protocol-specific registries. Smithery indexes MCP servers. The MCP registry is Anthropic&rsquo;s curated list. A2A defines agent cards as a manifest format. None of these are a discovery layer. They are lists. An agent cannot query them by capability at runtime. A human browses them. The retrieval layer that would make discovery actually autonomous does not exist.</p>
             <p className="r">The identity side is being attempted in silos. Stytch, now part of Twilio, is human and B2B SaaS auth with agent identity bolted on. Proof joined the FIDO Alliance in May 2026 and binds verified human identity to agent actions. AgentID launched in February 2026 as a cryptographic identity system. IBM, Auth0, and Yubico are building human-in-the-loop frameworks for high-risk agent actions. Every one of these is solving human-to-agent authorization. None of them are solving agent-to-agent peer verification with principal binding and scope attestation on a per-transaction basis between actors that have never met. That is a different primitive.</p>
@@ -36,17 +39,16 @@ export default function Thesis() {
         </div>
       </section>
 
-      {/* WHY EXA */}
+      {/* WHO SHOULD OWN THIS */}
       <section className="essay-sec">
         <div className="w">
-          <div className="lbl r">WHY EXA</div>
-          <h2 className="sec-heading r">The retrieval infrastructure already exists. The object class does not.</h2>
+          <div className="lbl r">{config.whySectionLabel}</div>
+          <h2 className="sec-heading r">{config.whySectionHeading}</h2>
           <div className="essay-body">
-            <p className="r">Trust is not a technical problem. It is a distribution and credibility problem. A trust layer only works if the agents using it already trust the authority issuing the credentials. That requires distribution to every developer building agents, credibility as a neutral infrastructure player, and the technical substrate to make retrieval work at web scale. Exa has all three. No other player does.</p>
-            <p className="r">Stytch has auth distribution but for human and SaaS workflows, not the open agent web. Anthropic has agent-developer distribution but is focused on the model and OS layer, not retrieval infrastructure. Google has A2A but it is a manifest standard, not an index. Nobody else sits at the intersection of retrieval infrastructure, agent-developer distribution, and the brand authority to operate as a neutral trust layer.</p>
-            <p className="r">The technical argument is simpler. Agents are web data with executable interfaces. Exa already indexes web data. The retrieval primitive is identical. What changes is the schema: instead of indexing pages, you index agent manifests. Instead of returning URLs, you return verified capability matches. The infrastructure does not change. The object class does. This is what Exa described when it raised $250M: a search lab organizing the web&rsquo;s data for agents. Agent manifests are web data. They are the next object class.</p>
-            <p className="r">In production, every indexed agent carries its full operational envelope. Capabilities, tools, constraints, cost of usage, accepted protocols, MCP or A2A or HTTP, rate limits, input bounds, scope boundaries, principal binding. An agent querying the discovery layer does not just get a verified identity. It gets everything it needs to decide whether to proceed. The right counterpart, at the right cost, over the right protocol, within the right authorization scope. One query. No humans. That is not a feature of a search engine. That is the infrastructure primitive the agent web is missing.</p>
-            <p className="r">AgentAuth is not asking Exa to become an identity company. The model is SSL, not a platform. A certificate authority verifies identity but is never in the data path. Let&rsquo;s Encrypt issues certificates but does not proxy your traffic. DNS resolves names but does not route your packets. Exa as the discovery and trust layer follows the same architecture: verify at the edges, stay out of the transaction. The agent web gets a foundation. Exa gets the distribution point for every agent interaction on the open internet.</p>
+            <p className="r">{config.whyParagraph1}</p>
+            <p className="r">{config.whyParagraph2}</p>
+            <p className="r">{config.whyParagraph3}</p>
+            <p className="r">{config.whyParagraph4}</p>
             <p className="r">
               The library is open source. &rarr;{' '}
               <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer" className="gh-inline">
@@ -56,10 +58,11 @@ export default function Thesis() {
           </div>
 
           <div className="exa-close r">
-            <p className="premise">AI agents already come to Exa for data.</p>
+            <p className="premise">{config.closingPremise}</p>
             <p className="thesis-line">
-              They should be able to come to Exa for{' '}
-              <span style={{ color: 'var(--green)' }}>execution</span> too.
+              {closingBefore}
+              <span style={{ color: 'var(--green)' }}>{config.closingThesisHighlight}</span>
+              {closingAfter}
             </p>
           </div>
         </div>
@@ -76,7 +79,7 @@ export default function Thesis() {
               <span className="q-mark">Q</span>
               <span className="q-text">Smithery, the MCP registry, and A2A agent cards already address discovery.</span>
             </div>
-            <p className="faq-a">They are lists. Smithery is a human-browsed directory with keyword search, built protocol by protocol. A2A agent cards are a manifest format, not a discovery layer. The MCP registry is a curated index maintained by Anthropic. None of them let an agent query by capability at runtime across protocols without a human in the loop. The distinction is list versus index. A list requires a human to browse it. An index lets an agent query it semantically at runtime. Exa is the only player with the retrieval infrastructure to build a real index at web scale, across MCP, A2A, and HTTP, as a single query surface.</p>
+            <p className="faq-a">They are lists. Smithery is a human-browsed directory with keyword search, built protocol by protocol. A2A agent cards are a manifest format, not a discovery layer. The MCP registry is a curated index maintained by Anthropic. None of them let an agent query by capability at runtime across protocols without a human in the loop. The distinction is list versus index. A list requires a human to browse it. An index lets an agent query it semantically at runtime. {config.faqQ1LastSentence}</p>
           </div>
 
           <div className="faq-item r">
@@ -90,9 +93,9 @@ export default function Thesis() {
           <div className="faq-item r">
             <div className="faq-q">
               <span className="q-mark">Q</span>
-              <span className="q-text">This looks like scope expansion. Why would Exa move from search to identity?</span>
+              <span className="q-text">{config.faqQ3Question}</span>
             </div>
-            <p className="faq-a">It is not scope expansion. Agents are web data with executable interfaces. Indexing them is the same retrieval primitive Exa already applies to pages, applied to a new object class. Schema changes. Infrastructure does not. Every search platform that won did so by expanding the object class it indexed, not by building a new product. Google did not pivot when it indexed places and products. It compounded. Exa does not have to build the trust layer from scratch either. AgentAuth is the complementary piece that plugs in. The pitch is not &ldquo;become an identity company.&rdquo; The pitch is &ldquo;be the discovery layer for the next object class, with trust built in.&rdquo;</p>
+            <p className="faq-a">It is not scope expansion. Agents are web data with executable interfaces. {config.faqQ3AnswerRetrievalPhrase}, applied to a new object class. Schema changes. Infrastructure does not. Every search platform that won did so by expanding the object class it indexed, not by building a new product. Google did not pivot when it indexed places and products. It compounded. {config.faqQ3AnswerOwnerPhrase} AgentAuth is the complementary piece that plugs in. The pitch is not &ldquo;become an identity company.&rdquo; The pitch is &ldquo;be the discovery layer for the next object class, with trust built in.&rdquo;</p>
           </div>
 
           <div className="faq-item r">
@@ -116,7 +119,7 @@ export default function Thesis() {
               <span className="q-mark">Q</span>
               <span className="q-text">How do you bootstrap trust in the CA itself? If no agents trust AgentAuth yet, the network has no value.</span>
             </div>
-            <p className="faq-a">The cold start problem is real and the answer is the same as how SSL bootstrapped: distribution, not adoption. Let&rsquo;s Encrypt did not wait for websites to trust it before issuing certs. It issued certs to early adopters, got bundled into browsers, and the network effect followed distribution. The equivalent here is Exa. If Exa ships discovery with AgentAuth verification as the default, every agent developer who uses Exa&rsquo;s discovery layer is automatically in the trust graph. The bootstrapping problem is a distribution problem. Exa already has the distribution. That is one of the core reasons Exa is the natural locus for this primitive, not an open source project waiting for adoption.</p>
+            <p className="faq-a">The cold start problem is real and the answer is the same as how SSL bootstrapped: distribution, not adoption. Let&rsquo;s Encrypt did not wait for websites to trust it before issuing certs. It issued certs to early adopters, got bundled into browsers, and the network effect followed distribution. {config.faqQ6LastParagraph}</p>
           </div>
         </div>
       </section>

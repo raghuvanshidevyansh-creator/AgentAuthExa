@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import AuditTrail from '@/components/AuditTrail'
+import { AGNOSTIC_CONFIG as config } from '@/config/company'
 
 export const metadata: Metadata = {
   title: 'AgentAuth — Discovery and Trust for the Agent Web',
 }
+
+const [thesisBefore, thesisAfter] = config.impactThesis.split(config.impactThesisHighlight)
 
 export default function Landing() {
   return (
@@ -102,18 +105,20 @@ export default function Landing() {
               <p>Every search platform that won did so by expanding the object class it indexed. Google: pages, then places, then products, then videos. Same primitive, new schemas.</p>
             </div>
             <p>Agents are web data with executable interfaces. Indexing them is the same retrieval primitive applied to a new object class. Schema changes. Infrastructure does not.</p>
+            <p className="r">{config.panel3ClosingSentence}</p>
           </div>
         </div>
       </section>
 
-      {/* EXA IMPACT */}
+      {/* IMPACT */}
       <section className="exa-sec">
         <div className="w">
           <div className="exa-over r">THE OPPORTUNITY</div>
-          <p className="exa-premise r">AI agents already come to Exa for data.</p>
+          <p className="exa-premise r">{config.impactPremise}</p>
           <p className="exa-thesis r">
-            They should be able to come to Exa for{' '}
-            <span style={{ color: 'var(--green)' }}>execution</span> too.
+            {thesisBefore}
+            <span style={{ color: 'var(--green)' }}>{config.impactThesisHighlight}</span>
+            {thesisAfter}
           </p>
         </div>
       </section>
@@ -147,11 +152,11 @@ export default function Landing() {
                 <p>Email infrastructure for agents. Vertical agent infrastructure is being funded. Trust is next.</p>
               </div>
             </div>
-            <div className="tl-entry hl">
-              <div className="tl-date">MAY 2026</div>
+            <div className={`tl-entry${config.timelineHighlight ? ' hl' : ''}`}>
+              <div className="tl-date">{config.timelineDate}</div>
               <div className="tl-content">
-                <h4>Exa raises $250M</h4>
-                <p>&ldquo;A search lab organizing the web&rsquo;s data for agents.&rdquo; The retrieval infrastructure exists. The agent object class does not yet have a schema.</p>
+                <h4>{config.timelineTitle}</h4>
+                <p>{config.timelineBody}</p>
               </div>
             </div>
           </div>
