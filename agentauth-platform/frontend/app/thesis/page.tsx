@@ -49,12 +49,6 @@ export default function Thesis() {
             <p className="r">{config.whyParagraph2}</p>
             <p className="r">{config.whyParagraph3}</p>
             <p className="r">{config.whyParagraph4}</p>
-            <p className="r">
-              The library is open source. &rarr;{' '}
-              <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer" className="gh-inline">
-                github.com/raghuvanshidevyansh-creator/AgentAuthExa
-              </a>
-            </p>
           </div>
 
           <div className="exa-close r">
@@ -133,12 +127,6 @@ export default function Thesis() {
             </svg>
             Read the full memo (PDF, 3 pages)
           </a>
-          <p className="gh-row r">
-            Open source &rarr;{' '}
-            <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer" className="gh-inline">
-              github.com/raghuvanshidevyansh-creator/AgentAuthExa
-            </a>
-          </p>
         </div>
       </section>
 
@@ -148,7 +136,6 @@ export default function Thesis() {
           <div className="f-links">
             <Link href="/">Home</Link>
             <Link href="/demo">Demo</Link>
-            <a href="https://github.com/raghuvanshidevyansh-creator/AgentAuthExa" target="_blank" rel="noreferrer">GitHub</a>
           </div>
           <p className="f-attr">BUILT AT DUKE &middot; OPEN SOURCE &middot; 2026</p>
         </div>
