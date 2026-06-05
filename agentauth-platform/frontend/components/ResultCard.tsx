@@ -106,9 +106,6 @@ export default function ResultCard({ result: r, index, isIdOpen, onToggleId, onU
           <button className={badgeClass} onClick={() => onToggleId(index)}>
             {badgeText}
           </button>
-          <a className="source-link" href={r.source_url} target="_blank" rel="noreferrer">
-            source &rarr;
-          </a>
         </div>
         <div className="card-actions">
           <button

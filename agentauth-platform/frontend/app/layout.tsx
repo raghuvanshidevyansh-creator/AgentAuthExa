@@ -3,6 +3,7 @@ import { Syne, JetBrains_Mono, Lora } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import ScrollRevealInit from '@/components/ScrollRevealInit'
+import { Analytics } from '@vercel/analytics/react'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <ScrollRevealInit />
         {children}
+        <Analytics />
       </body>
     </html>
   )
