@@ -24,3 +24,20 @@ export const AGNOSTIC_CONFIG = {
   faqQ3AnswerOwnerPhrase: "The natural owner does not have to build the trust layer from scratch.",
   faqQ6LastParagraph: "The equivalent here is whichever company already has distribution to agent developers. If they ship discovery with AgentAuth verification as the default, every developer using their retrieval layer is automatically in the trust graph. The bootstrapping problem is a distribution problem. The natural owner already has the distribution. That is the core reason this primitive belongs to retrieval infrastructure, not an open source project waiting for adoption.",
 };
+
+export type CompanyConfig = typeof AGNOSTIC_CONFIG
+
+export const TAVILY_CONFIG: CompanyConfig = { ...AGNOSTIC_CONFIG }
+export const PERPLEXITY_CONFIG: CompanyConfig = { ...AGNOSTIC_CONFIG }
+export const CLOUDFLARE_CONFIG: CompanyConfig = { ...AGNOSTIC_CONFIG }
+
+export const COMPANY_MAP: Record<string, CompanyConfig> = {
+  tavily:     TAVILY_CONFIG,
+  perplexity: PERPLEXITY_CONFIG,
+  cloudflare: CLOUDFLARE_CONFIG,
+}
+
+export function getConfig(company?: string): CompanyConfig {
+  if (!company) return AGNOSTIC_CONFIG
+  return COMPANY_MAP[company.toLowerCase()] ?? AGNOSTIC_CONFIG
+}
